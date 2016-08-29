@@ -6,7 +6,7 @@
 .pull-to-refresh-layer {
     position: relative;
     left:0; 
-    top:0; 
+    top:0.75rem; 
     width:100%; 
     height:@layerHeight; 
     color: @color-text-gray;
@@ -16,11 +16,12 @@
         .preloader;
     }
     .pull-to-refresh-arrow {
-        width: 0.65rem;
-        height: 1rem;
+        width: 0.4rem;
+        height: 0.8rem;
+        margin-top:0.1rem;
         background: no-repeat center;
         .encoded-svg-background("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 40'><polygon points='9,22 9,0 17,0 17,22 26,22 13.5,40 0,22' fill='#8c8c8c'/></svg>");
-        background-size: 0.65rem  1rem;
+        background-size:100%;
         z-index: 10;
         transform: rotate(0deg) translate3d(0,0,0);
         transition-duration: 300ms;
@@ -73,12 +74,13 @@
 
 .label-down, .label-up, .label-refresh {
   display: none;
-  width: 9rem;
+  width:auto;
+  font-size:0.7rem;
   text-align: center;
 }
 
 .label-refresh {
-  width: 5rem;
+  width:3rem;
 }
 
 .pull-down .label-down,

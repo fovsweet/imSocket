@@ -1,6 +1,7 @@
 <script>
    import Main from './components/Main'
    import Scroll from './components/Scroll'
+   import Chatmodal from './components/ChatModal'
 
    export default {
    	ready(){
@@ -12,7 +13,7 @@
    		}
    	},
       components: {
-         Main,Scroll
+         Main,Scroll,Chatmodal
       },
       methods:{
       	init(){
@@ -55,19 +56,19 @@
 					done()  // call done
 				}, 2000)
 			},
-			onInfinite (done) {
-				console.log('infinite')
-				setTimeout(function () {
-					var f = document.createDocumentFragment()
-					for (let i = 0; i < 10; i++) {
-						let p = document.createElement('p')
-						p.textContent = 'Write some HTML, grab some JSON, create a Vue instance, that\'s it.'
-						f.appendChild(p)
-					}
-					document.getElementById('list').appendChild(f)
-					done()  // call done()
-				}, 2000)
-			}
+			// onInfinite (done) {
+			// 	console.log('infinite')
+			// 	setTimeout(function () {
+			// 		var f = document.createDocumentFragment()
+			// 		for (let i = 0; i < 10; i++) {
+			// 			let p = document.createElement('p')
+			// 			p.textContent = 'Write some HTML, grab some JSON, create a Vue instance, that\'s it.'
+			// 			f.appendChild(p)
+			// 		}
+			// 		document.getElementById('list').appendChild(f)
+			// 		done()  // call done()
+			// 	}, 2000)
+			// },
       }
    }
 </script>
@@ -79,6 +80,7 @@
 				<Main></Main>
 			</Scroll>
    	</div>
+   	<Chatmodal></Chatmodal>
    </div>
 </template>
 
@@ -113,9 +115,8 @@
 		position: absolute;
 		left: 0;
 		top: 0;
-		bottom: 0;
+		bottom:2rem;
 		right: 0;
 		width: 100%;
-		height: 100%;
 	}
 </style>

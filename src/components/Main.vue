@@ -42,4 +42,13 @@
 	.content-padded{
 	    margin: .5rem;
 	}
+   h2{
+      font-size:1rem;
+   }
+   h3{
+      font-size:0.8rem
+   }
+   p{
+      font-size:0.75rem
+   }
 </style>

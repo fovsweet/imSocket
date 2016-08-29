@@ -1,45 +1,9 @@
-<template>
-  <div class="scroll"
-       :class="{
-         'pull-down': (state === 0),
-         'pull-up': (state === 1),
-         refreshing: (state === 2),
-         touching: touching
-       }"
-      @touchstart="onRefresh ? touchStart($event) : undefined"
-      @touchmove="onRefresh ? touchMove($event) : undefined"
-      @touchend="onRefresh ? touchEnd($event) : undefined"
-      @scroll="(onInfinite || infiniteLoading) ? onScroll($event) : undefined"
-       >
-    <div class="scroll-inner"
-      :style="{ transform: 'translate3d(0, ' + top + 'px, 0)' }"
-      >
-      <div class="pull-to-refresh-layer" v-if="!!onRefresh">
-        <slot name="refresh">
-          <div class="preloader"></div>
-          <div class="pull-to-refresh-arrow"></div>
-          <span class="label-down">下拉获取更多信息</span>
-          <span class="label-up">放开获取信息</span>
-          <span class="label-refresh">加载中...</span>
-        </slot>
-      </div>
-      <slot></slot>
-      <div class="infinite-layer" v-if="onInfinite">
-        <slot name="infinite">
-          <div class="infinite-preloader"></div>
-          <div>加载中...</div>
-        </slot>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script>
 export default {
   props: {
     offset: {
       type: Number,
-      default: 44
+      default: 60
     },
     onRefresh: {
       type: Function,
@@ -134,6 +98,41 @@ export default {
   }
 }
 </script>
+<template>
+  <div class="scroll"
+       :class="{
+         'pull-down': (state === 0),
+         'pull-up': (state === 1),
+         refreshing: (state === 2),
+         touching: touching
+       }"
+      @touchstart="onRefresh ? touchStart($event) : undefined"
+      @touchmove="onRefresh ? touchMove($event) : undefined"
+      @touchend="onRefresh ? touchEnd($event) : undefined"
+      @scroll="(onInfinite || infiniteLoading) ? onScroll($event) : undefined"
+       >
+    <div class="scroll-inner"
+      :style="{ transform: 'translate3d(0, ' + top + 'px, 0)' }"
+      >
+      <div class="pull-to-refresh-layer" v-if="!!onRefresh">
+        <slot name="refresh">
+          <div class="preloader"></div>
+          <div class="pull-to-refresh-arrow"></div>
+          <span class="label-down">下拉获取更多信息</span>
+          <span class="label-up">放开获取信息</span>
+          <span class="label-refresh">加载中...</span>
+        </slot>
+      </div>
+      <slot></slot>
+      <div class="infinite-layer" v-if="onInfinite">
+        <slot name="infinite">
+          <div class="infinite-preloader"></div>
+          <div>加载中...</div>
+        </slot>
+      </div>
+    </div>
+  </div>
+</template>
 <style lang="less" scoped>
 @import './scroll.less';
 </style>

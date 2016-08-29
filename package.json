@@ -5,8 +5,8 @@
   "author": "fovsweet <619532786@qq.com>",
   "private": true,
   "scripts": {
-    "dev": "node build/dev-server.js --inline --host 192.168.31.148",
-    "build": "node build/build.js",
+    "dev": "node build/dev-server.js --inline --hot 192.168.1.20",
+    "build": "node build/build.js -w",
     "test": ""
   },
   "dependencies": {
